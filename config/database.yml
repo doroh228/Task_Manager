@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV["TASK_MANAGER_DATABASE_LOGIN"] %>
+  password: <%= ENV["TASK_MANAGER_DATABASE_PASSWORD"] %>
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: Task_Manager_development
+
+test:
+  <<: *default
+  database: Task_Manager_test
+
+production:
+  <<: *default
+  database: Task_Manager_production
+  username: Task_Manager
+  password: <%= ENV["TASK_MANAGER_DATABASE_PASSWORD"] %>
