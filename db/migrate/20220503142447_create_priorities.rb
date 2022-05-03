@@ -5,5 +5,9 @@ class CreatePriorities < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+    Priority.create(:title => 'Low')
+    Priority.create(:title => 'Medium')
+    Priority.create(:title => 'High')
   end
 end

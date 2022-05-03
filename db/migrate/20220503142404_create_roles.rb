@@ -5,5 +5,8 @@ class CreateRoles < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+    Role.create(:title => 'user')
+    Role.create(:title => 'admin')
   end
 end
