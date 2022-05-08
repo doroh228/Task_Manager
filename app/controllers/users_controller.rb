@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_token
   def create
-    user = user_from_params(params)
-    if user.save
+    @user = User.new(user_params)
+    if @user.save
       render json: {result: 'create successful', user: user}, status: 201
     else
-      render json: {result: "Exception", user: user}, status: 200
+      flash[:notice] = @user.errors.full_messages.to_sentence
+      redirect_to '/register'
     end
   end
 
@@ -20,18 +20,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def new
+    @user = User.new
+  end
+
   def show
     @user = User.find_by(id: params[:id])
   end
 
-  def user_from_params(params)
-    User.new(
-      login: params[:user][:login],
-      password: params[:user][:password],
-      name: params[:user][:name],
-      surname: params[:user][:surname],
-      role_id: params[:user][:role]
-    )
+
+  private
+  def user_params
+    params.require(:user).permit(:login, :password, :name, :surname)
   end
 
 end

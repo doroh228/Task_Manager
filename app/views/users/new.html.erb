@@ -1,0 +1,28 @@
+<% if notice %>
+  <p class="alert alert-danger" id="notice"><%= notice %></p>
+<%end %>
+<h1>Registration form</h1>
+
+<form action="/users" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div class="container-md">
+    <div class="mb-3">
+      <label for="login" class="form-label">Login</label>
+      <input type="text" name="user[login]" class="form-control" id="login" aria-describedby="emailHelp" value="<%= @user.login %>">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" name="user[name]" class="form-control" id="name" aria-describedby="emailHelp" value="<%= @user.name %>">
+    </div>
+    <div class="mb-3">
+      <label for="surname" class="form-label">Surname</label>
+      <input type="text" name="user[surname]" class="form-control" id="surname" aria-describedby="emailHelp" value="<%= @user.surname %>">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" name="user[password]" class="form-control" id="password" aria-describedby="emailHelp" value="<%= @user.password %>">
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+  </div>
+</form>
