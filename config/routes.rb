@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :users
+  get 'priorities/index'
+  resources :users, :roles, :priorities
 end

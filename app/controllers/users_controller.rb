@@ -21,7 +21,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    debugger
     @user = User.find_by(id: params[:id])
   end
 
