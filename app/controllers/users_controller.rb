@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      render json: {result: 'create successful', user: user}, status: 201
+      session[:user_id] = @user.id
+      redirect_to "/"
     else
       flash[:notice] = @user.errors.full_messages.to_sentence
       redirect_to '/register'
