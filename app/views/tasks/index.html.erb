@@ -1,0 +1,12 @@
+<%= render 'layouts/navbar' %>
+<% if current_user %>
+  <% if notice %>
+    <p class="alert alert-danger" id="notice"><%= notice %></p>
+  <% end %>
+  <div style="margin: 40px">
+    <h1>Tasks</h1>
+    <h4 style="margin-top: 20px"><%= link_to "Create new task", new_task_path %></h4>
+  </div>
+
+  <%= render 'tasks' %>
+<% end %>

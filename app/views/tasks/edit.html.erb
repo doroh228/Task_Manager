@@ -1,0 +1,16 @@
+<%= render 'layouts/navbar' %>
+<% if notice %>
+  <p class="alert alert-danger" id="notice"><%= notice %></p>
+<%end %>
+<div style="margin: 40px; width: 50%; justify-content: center">
+  <%= form_with model: @task do |form| %>
+    <p class="form-label" style="text-align: center"><%= form.label :title, 'Title' %></p>
+    <p class="form-control"><%= form.text_field :title%></p>
+    <p class="form-label" style="text-align: center"><%= form.label :body, 'Body' %></p>
+    <p class="form-control"><%= form.text_area :body, rows: 5 %></p>
+    <p class="form-label" style="text-align: center"><%= form.label :priority_id, 'Priority' %></p>
+    <p class="form-control"><%= form.text_field :priority_id%></p>
+    <div id="emailHelp" class="form-text">1 - Low; 2 - Medium; 3 - High</div>
+    <p style="text-align: center"><%= form.submit 'Save' %></p>
+  <% end %>
+</div>

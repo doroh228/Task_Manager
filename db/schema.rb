@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_08_183042) do
     t.string "title", null: false
     t.text "body", null: false
     t.integer "reporter_id", null: false
-    t.integer "assignee_id", null: false
+    t.integer "assignee_id"
     t.date "date_die"
     t.integer "priority_id", null: false
     t.datetime "created_at", null: false

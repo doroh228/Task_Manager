@@ -4,7 +4,7 @@ class CreateTasks < ActiveRecord::Migration[7.0]
       t.string :title,null: false
       t.text :body, null: false
       t.integer :reporter_id, null: false
-      t.integer :assignee_id, null: false
+      t.integer :assignee_id, null: true
       t.date :date_die
       t.integer :priority_id, null: false
 

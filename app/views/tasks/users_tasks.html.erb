@@ -1,0 +1,10 @@
+<%= render 'layouts/navbar' %>
+<% if current_user %>
+  <% if notice %>
+    <p class="alert alert-danger" id="notice"><%= notice %></p>
+  <% end %>
+  <div style="margin: 40px">
+    <h1>My issues</h1>
+  </div>
+<%= render 'tasks' %>
+<% end %>

@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   after_initialize :default_values
-  before_save :default_values
   belongs_to :role
   validates :login, uniqueness: true
 

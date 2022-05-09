@@ -1,0 +1,23 @@
+<%= render 'layouts/navbar' %>
+<% if notice %>
+  <p class="alert alert-danger" id="notice"><%= notice %></p>
+<%end %>
+<form action="/tasks" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div class="container-md">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" name="task[title]" class="form-control" id="title" aria-describedby="emailHelp" value="<%= @task.title %>">
+    </div>
+    <div class="mb-3">
+      <label for="body" class="form-label">Body</label>
+      <input type="text" name="task[body]" class="form-control" id="body" aria-describedby="emailHelp" value="<%= @task.body %>">
+    </div>
+    <div class="mb-3">
+      <label for="priority_id" class="form-label">Priority</label>
+      <input type="number" name="task[priority_id]" class="form-control" id="priority_id" aria-describedby="emailHelp" value="<%= @task.priority_id %>">
+      <div id="emailHelp" class="form-text">1 - Low; 2 - Medium; 3 - High</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+</form>

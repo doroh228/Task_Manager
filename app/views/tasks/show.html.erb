@@ -1,0 +1,10 @@
+<%= render 'layouts/navbar' %>
+<div style="margin: 40px">
+  <h1>Title: <%= @task.title %></h1>
+  <h3>Reported by: <%= User.find_by(id: @task.reporter_id).name %></h3>
+  <% if User.find_by(id: @task.assignee_id) %>
+    <h3>Assigner: <%= User.find_by(id: @task.assignee_id).name %></h3>
+  <% end %>
+  <h5>Body: <%= @task.body %></h5>
+  <h5>Priority: <%= Priority.find_by(id: @task.priority_id).title %></h5>
+</div>
